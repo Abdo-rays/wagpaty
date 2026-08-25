@@ -1,0 +1,10 @@
+{
+  "description": "Manage restaurant operations seamlessly with user authentication, meal management, order tracking, and real-time chat features for customers and admins.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
