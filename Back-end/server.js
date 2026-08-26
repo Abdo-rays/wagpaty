@@ -23,9 +23,14 @@ const app = express();
 
 app.use(helmet());
 
+const allowedOrigins = (process.env.FRONTEND_URL || '')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
 app.use(
   cors({
-    origin: '*', 
+    origin: allowedOrigins.length ? allowedOrigins : true,
     credentials: true,
   })
 );
@@ -79,7 +84,7 @@ const PORT = process.env.PORT || 5000;
 
 const server = http.createServer(app);
 const io = new Server(server, {
-  cors: { origin: '*', credentials: true },
+  cors: { origin: allowedOrigins.length ? allowedOrigins : true, credentials: true },
 });
 app.set('io', io);
 initializeSocket(io);
