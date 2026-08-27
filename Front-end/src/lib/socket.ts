@@ -5,7 +5,7 @@ let socket: any = null
 export function connectSocket(token?: string) {
   if (socket) return socket
   const configuredApiUrl = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL
-  const base = import.meta.env.VITE_SOCKET_URL || (configuredApiUrl ? configuredApiUrl.replace(/\/$/, '').replace(/\/api$/, '') : 'http://localhost:5000')
+  const base = import.meta.env.VITE_SOCKET_URL || (configuredApiUrl ? configuredApiUrl.replace(/\/$/, '').replace(/\/api$/, '') : 'https://wagpaty-backend.vercel.app')
   try {
     socket = io(base, { auth: { token } })
     socket.on && socket.on('connect_error', (err: any) => {

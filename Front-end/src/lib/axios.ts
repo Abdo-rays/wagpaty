@@ -3,7 +3,7 @@ import axios from 'axios'
 const configuredApiUrl = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL
 const API_BASE = configuredApiUrl
   ? `${configuredApiUrl.replace(/\/$/, '').replace(/\/api$/, '')}/api`
-  : 'http://localhost:5000/api'
+  : 'https://wagpaty-backend.vercel.app/api'
 
 const api = axios.create({
   baseURL: API_BASE,
